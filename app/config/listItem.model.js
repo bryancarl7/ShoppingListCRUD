@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         quantity: {
-            type: Sequelize.INT
+            type: Sequelize.INTEGER
         }
     });
 

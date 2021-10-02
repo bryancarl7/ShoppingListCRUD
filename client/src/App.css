@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+#header {
+  position: relative;
+  height: 64px;
+  background-color: #4D81B7;
+}
+
+#header-text {
+  vertical-align: center;
+  height: 23px;
+  width: 113px;
+  border-radius: nullpx;  
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  font-family: Dosis;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 23px;
+  letter-spacing: 0.25px;
+  text-align: left;
+}

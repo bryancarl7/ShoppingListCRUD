@@ -1,8 +1,8 @@
 const dbConfig = require('../config/db.config.js');
-const Sequalize = require('sequelize');
+const Sequelize = require('sequelize');
 
 // Setup our db client to be used for the model
-const client = new Sequalize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+const client = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
     operatorsAliases: false,
@@ -15,5 +15,9 @@ const client = new Sequalize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 });
 
 // Make sure that our db has a model
-db.listItem = require("./listItem.model.js")(sequelize, Sequelize);
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = client;
+db.listItem = require("../config/listItem.model.js")(client, Sequelize);
+
 module.exports = db;

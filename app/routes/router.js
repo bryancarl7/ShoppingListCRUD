@@ -1,12 +1,16 @@
 module.exports = app => {
+    // Router uses controller to map from one endpoint to the frontend
     const listItem = require("../controller/controller.js");
   
     var router = require("express").Router();
   
-    // Retrieve all Tutorials
-    router.get("/", listItem.findAll);
+    router.get("/listItems", listItem.findAll);
   
-    router.post("/newItem", listItem.create);
+    router.post("/listItem", listItem.create);
+    
+    router.put("/listItem/update/:title", listItem.update);
+
+    router.delete("/listItem/:title", listItem.delete);
   
-    app.use('/shoppingList', router);
+    app.use('/api', router);
 };

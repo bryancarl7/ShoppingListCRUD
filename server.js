@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-//const db = require("app/model");
+const fs = require("fs");
+
+//const db = require("./app/model/model.js");
+// TODO: setup DB
 
 // Setup the app to utilize the cors options and JSON parser
 const app = express();
@@ -14,8 +17,10 @@ app.get("/list", (req, res) => {
     res.status(200).json({ message: "If you can see this, it worked!" });
 });
   
-// Need to make sure DB is ready
-//db.sequelize.sync();
+// Need to make sure DB is ready, need to configure DB
+// db.sequelize.sync();
+
+require("./app/routes/turorial.routes")(app);
 
 // Setup port, but defer to env  port if it exists
 const PORT = process.env.PORT || 5000;

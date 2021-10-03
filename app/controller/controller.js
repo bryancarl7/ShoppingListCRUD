@@ -6,7 +6,7 @@
 // remove an item: destroy(where: { id: id })
 // remove all items: destroy(where: {})
 // find all items by title: findAll({ where: { title: ... } })
-const db = require("../models");
+const db = require("../model/model.js");
 const listItem = db.listItem;
 const Op = db.Sequelize.Op;
 
@@ -49,6 +49,8 @@ exports.findAll = (req, res) => {
                 message: err.message
             });
         });
+    } else {
+        res.send(200);
     }
 };
 

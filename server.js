@@ -20,7 +20,7 @@ app.get("/list", (req, res) => {
 // Need to make sure DB is ready, need to configure DB
 // db.sequelize.sync();
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/router.js")(app);
 
 // Setup port, but defer to env  port if it exists
 const PORT = process.env.PORT || 5000;

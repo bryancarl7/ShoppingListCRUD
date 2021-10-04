@@ -44,9 +44,6 @@
 }
 
 #header-text {
-  vertical-align: center;
-  height: 23px;
-  width: 113px;
   border-radius: nullpx;  
   font-family: 'Dosis', sans-serif;
   color: white;
@@ -56,5 +53,7 @@
   font-weight: 600;
   line-height: 23px;
   letter-spacing: 0.25px;
-  text-align: left;
+  left: 30px;
+  top: 20px;
+  position: absolute;
 }

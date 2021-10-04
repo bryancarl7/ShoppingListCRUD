@@ -2,20 +2,13 @@ import './App.css';
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-//import {AddListItem, Item, ItemsList} from "./components"
+import AddListItem from "./components/AddListItem.js"
+import ItemsList from "./components/ItemsList.js"
 
 var listItems;
 fetch('http://localhost:5000/list')
 .then(response => response.json())
 .then(data => console.log(data));
-
-/*
-              <!--
-              <Route exact path={["/", "/itemsList"]} component={ItemsList} />
-              <Route exact path="/add" component={AddListItem} />
-              <Route path="/item/:id" component={Item} />
-              -->
-*/
 
 class App extends Component {
   render () {
@@ -30,7 +23,8 @@ class App extends Component {
           {listItems}
           <div>
             <Switch>
-
+              <Route exact path={["/", "/itemsList"]} component={ItemsList} />
+              <Route exact path="/add" component={AddListItem} />
             </Switch>
           </div>
         </div>

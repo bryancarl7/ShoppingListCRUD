@@ -1,7 +1,7 @@
 # ShoppingListCRUD #
 A small applet to mimic a shopping list's functionality in a single webpage
 
-*** A little Background: ***
+***A little Background:***
 I've never really done a React -> Express -> mySQL stack *from scratch*
 <br> before, so I thought it'd be fun at the very least to learn something 
 <br> new through this process. I've used all three of these extensively in a <br> professional environments, but at my current workplace, we rarely get to <br> write code from scratch. So bear with me.

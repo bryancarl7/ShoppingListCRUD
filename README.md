@@ -26,11 +26,11 @@ If you're reading this, you're a little too early, will update soon <br>
 with the proper backend support and frontend look.<br>
 
 ### TODO: ###
-- Writeup Redux Reducers
-- Start on React components
+- Finish react components and iron out API control flows
 - Get db working and connected (with error handling)
 
 ### Personal Notes: ###
 - Need to readup more on concurrently, looks promising.
 - Need to write a script to pull homebrew on new computers
 - Remember to write a new auth profile on github for this Comp
+- Look into redux reducers, want to learn more about that

@@ -1,11 +1,13 @@
 import './App.css';
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import AddListItem from "./components/AddListItem.js"
-import ItemsList from "./components/ItemsList.js"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Button from '@mui/material/Button';
+import AddListItem from "./components/addListItem.js"
+import itemsList from "./components/itemsList.js"
+import deleteItem from "./components/deleteItem.js"
 
-var listItems;
+// Just to probe to see if the backend is connected
 fetch('http://localhost:5000/list')
 .then(response => response.json())
 .then(data => console.log(data));
@@ -20,13 +22,11 @@ class App extends Component {
               SHOPPING LIST
             </div>
           </div>
-          {listItems}
-          <div>
-            <Switch>
-              <Route exact path={["/", "/itemsList"]} component={ItemsList} />
-              <Route exact path="/add" component={AddListItem} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path={["/", "/itemsList"]} component={itemsList} />
+            <Route exact path="/delete" component={deleteItem} />
+            <Route exact path="/add" component={AddListItem} />
+          </Switch>
         </div>
       </Router>
     )

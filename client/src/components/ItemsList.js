@@ -1,36 +1,68 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Checkbox from '@mui/material/Checkbox';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import Button from '@mui/material/Button';
 
-export default function ItemsList() {
-    // Psuedo data so I can update the styles appropriately
-    const gridHeader = [
-        {field:'Title'},
-        {field:'Description'},
-        {field:'Quantity'}
-    ]
+export default function CheckboxList() {
+  const [checked, setChecked] = React.useState([0]);
 
-    const testData = [
-        {
-            id:1,
-            Title:'Tomato',
-            Description:'Be sure to grab a tomato at the store',
-            Quantity: 2
-        },
-        {
-            id:2,
-            Title:'Pizza',
-            Description:'Make sure its Frozen!',
-            Quantity: 1
-        },
-        {
-            id:3,
-            Title:'Coffee',
-            Description:'Need to pickup coffee grounds',
-            Quantity: 4
-        },
-    ]
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
 
-    return (
-        <DataGrid style={{height:"500px", 'min-width':'600px',width:'100%'}} disableExtendRowFullWidth={true} spacing={3} xl={4} rows={testData} columns={gridHeader} headerAlign={"center"}/>
-    );
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+
+  return (
+    <>
+    <div style={{whiteSpace: 'nowrap'}}>
+        <div style={{paddingTop:10, paddingLeft:'30px', textAlign:'left', display: 'inline-block', right:0}}>Your Items</div>
+        <Button variant="contained" style={{display: 'inline-block', left:'75%'}}>Add Item</Button>
+    </div>
+    <div>
+    <List sx={{ paddingTop:'5px',width: '100%', maxWidth: 1000, bgcolor: 'background.paper', marginLeft:5, marginRight:5 }}>
+      {[0, 1, 2, 3, 4, 5].map((value) => {
+        const labelId = `checkbox-list-label-${value}`;
+
+        return (
+          <ListItem
+            key={value}
+            secondaryAction={
+              <IconButton edge="end" aria-label="comments">
+                <EditIcon />
+              </IconButton>
+            }
+            disablePadding
+          >
+            <ListItemButton role={undefined} onClick={handleToggle(value)} dense>
+              <ListItemIcon>
+                <Checkbox
+                  edge="start"
+                  checked={checked.indexOf(value) !== -1}
+                  tabIndex={-1}
+                  disableRipple
+                  inputProps={{ 'aria-labelledby': labelId }}
+                />
+              </ListItemIcon>
+              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
+    </div>
+    </>
+  );
 }

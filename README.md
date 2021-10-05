@@ -1,7 +1,7 @@
 # ShoppingListCRUD #
 A small applet to mimic a shopping list's functionality in a single webpage
 
-*** A little Background: ***
+***A little Background:***
 I've never really done a React -> Express -> mySQL stack *from scratch*
 <br> before, so I thought it'd be fun at the very least to learn something 
 <br> new through this process. I've used all three of these extensively in a <br> professional environments, but at my current workplace, we rarely get to <br> write code from scratch. So bear with me.
@@ -26,11 +26,11 @@ If you're reading this, you're a little too early, will update soon <br>
 with the proper backend support and frontend look.<br>
 
 ### TODO: ###
-- Writeup Redux Reducers
-- Start on React components
+- Finish react components and iron out API control flows
 - Get db working and connected (with error handling)
 
 ### Personal Notes: ###
 - Need to readup more on concurrently, looks promising.
 - Need to write a script to pull homebrew on new computers
 - Remember to write a new auth profile on github for this Comp
+- Look into redux reducers, want to learn more about that
